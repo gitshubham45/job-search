@@ -1,0 +1,29 @@
+/* src/JobCard.css */
+
+/* Styling for the job card container */
+.card {
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+}
+
+/* Styling for the toggle button (Show more/less) */
+.toggleButton {
+    background: none;
+    border: none;
+    color: #007BFF;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Styling for the apply button */
+.applyButton {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
