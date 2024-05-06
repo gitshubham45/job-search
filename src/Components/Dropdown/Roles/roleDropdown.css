@@ -1,0 +1,22 @@
+/* src/RoleDropdown.css */
+
+/* Styling for the dropdown element */
+.role-dropdown {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    color: black;
+}
+
+/* Style for the optgroup label */
+.role-dropdown optgroup {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for individual options */
+.role-dropdown option {
+    padding: 8px;
+    color: #333;
+}
