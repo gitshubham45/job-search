@@ -31,7 +31,7 @@ const JobList = () => {
             .catch((error) => console.error(error));
 
 
-    }, [jobData])
+    }, [])
 
     return (
         <div>

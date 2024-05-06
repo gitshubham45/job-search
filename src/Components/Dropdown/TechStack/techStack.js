@@ -1,0 +1,33 @@
+const techStack = [
+    'JavaScript',
+    'Python',
+    'Java',
+    'C++',
+    'Ruby',
+    'PHP',
+    'C#',
+    'Go',
+    'Rust',
+    'Kotlin',
+    'Swift',
+    'TypeScript',
+    'React',
+    'Angular',
+    'Vue',
+    'Node.js',
+    'Express',
+    'Django',
+    'Flask',
+    'Spring',
+    'Hibernate',
+    'TensorFlow',
+    'PyTorch',
+    'SQL',
+    'NoSQL',
+    'MongoDB',
+    'PostgreSQL',
+    'MySQL',
+  ];
+
+  export default techStack;
+  

@@ -1,23 +1,35 @@
 // src/RoleDropdown.js
-import React from 'react';
+import React, { useState } from 'react';
 import rolesData from './rolesData';
 import './roleDropdown.css'; // Create CSS for styling
+import Select from 'react-select';
 
-const RoleDropdown = ({ onRoleChange }) => {
-  return (
-    <select className="role-dropdown" onChange={(e) => onRoleChange(e.target.value)}>
-      <option value="">Role</option> {/* Placeholder option */}
-      {rolesData.map((category) => (
-        <optgroup key={category.category} label={category.category}>
-          {category.roles.map((role) => (
-            <option key={role} value={role}>
-              {role}
-            </option>
-          ))}
-        </optgroup>
-      ))}
-    </select>
-  );
+
+
+const getOptions = (data) => {
+    return data.map((group) => ({
+        label: group.category,
+        options: group.roles.map((role) => ({ value: role, label: role })),
+    }));
+};
+
+const RoleDropdown = () => {
+
+    const [selectedRoles, setSelectedRoles] = useState([]);
+
+    const handleChange = (selectedOptions) => {
+        setSelectedRoles(selectedOptions);
+    };
+
+    return (
+        <Select
+            isMulti
+            options={getOptions(rolesData)} // Use transformed options
+            value={selectedRoles}
+            onChange={handleChange}
+            placeholder="Select roles..."
+        />
+    );
 };
 
 export default RoleDropdown;
