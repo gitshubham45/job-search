@@ -1,8 +1,14 @@
-.jobList{
-  
-    width: auto;
+.jobList {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  /* Allow wrapping to create multiple rows */
     padding: 20px;
-    justify-content: space-around;
-}
+    justify-content: space-around;  /* Space around the items */
+  }
+  
+  @media (max-width: 767px) {
+    /* On mobile (small screens), justify items to the center */
+    .jobList {
+      justify-content: center;  /* Center single item in the row */
+    }
+  }
+  

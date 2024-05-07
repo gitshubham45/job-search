@@ -1,11 +1,9 @@
-/* src/JobCard.css */
-
-/* Styling for the job card container */
+/* Default styling for the job card container */
 .card {
     width: 25vw;
     height: 90vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     border: 1px solid #ddd;
@@ -13,30 +11,47 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 16px;
-    background-color: rgb(182, 211, 244);
-   
+    background-color: rgb(208, 226, 246);
 }
 
-
-
-@media (max-width: 934px) {
+/* Media query for screens up to 767px (mobile) */
+@media (max-width: 767px) {
     .card {
-        width: 35vw;
-        flex-direction: column;
-        /* Stack items horizontally for wider screens */
-        justify-content: space-between;
-        /* Evenly space out items */
+        width: 100%;
+        /* Single card per row */
+        height: auto;
+        /* Allow height to adjust based on content */
+    }
+
+    .content {
+        overflow-y: auto;
+        /* Enable vertical scroll for content */
+        max-height: 60vh;
+        /* Limit the maximum height to avoid excessive scrolling */
     }
 }
-@media (max-width: 500px) {
+
+/* Media query for tablet screens (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
     .card {
-        min-width: 35vw;
-        flex-direction: column;
-        /* Stack items horizontally for wider screens */
-        justify-content: space-between;
-        /* Evenly space out items */
+        width: 45%;
+        /* Two cards per row */
+        height: 80vh;
+        /* Adjust height for tablet-sized screens */
     }
 }
+
+/* Media query for larger screens (1024px and above) */
+@media (min-width: 1024px) {
+    .card {
+        width: 30%;
+        /* Multiple cards per row */
+        height: 90vh;
+        /* Restore the larger height for ample content */
+    }
+}
+
+
 
 /* Styling for the toggle button (Show more/less) */
 .toggleButton {
@@ -47,24 +62,32 @@
     padding: 0;
 }
 
-.time{
-    height: 1%;
+.time {
+    height: 3%;
     background-color: #007BFF;
 }
 
-.content{
-    height: 70%;
-    background-color: blueviolet;
-    overflow: hidden;
+.content {
+    height: 90%;
+    /* background-color: blueviolet; */
+    overflow: scroll;
+
 }
 
-.apply{
-    height: 10%;    
+.content::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar in Webkit browsers */
+}
+
+.apply {
+    height: 10%;
     width: 100%;
     display: block;
     text-align: center;
-    background-color: crimson;
+    /* background-color: crimson; */
 }
+
+
 
 /* Styling for the apply button */
 .applyButton {
@@ -78,4 +101,9 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.applyButton:hover {
+    background-color: #6db5b2;
+    transition: background-color 0.5s ease;
 }

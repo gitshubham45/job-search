@@ -1,60 +1,48 @@
 .dropdown-container {
     padding: 0 15px 20px;
+    width: 85%;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    /* Default to column for smaller screens */
     align-items: stretch;
-    background-color: #bbfcea;
+    /* Ensure dropdowns stretch to full width */
+    justify-content: flex-start;
+    background-color: #8c9391;   
+    padding: 20px;
+    border-radius: 15px;
 }
 
+/* Wrapper for each dropdown */
 .dropdown-wrapper {
     width: 100%;
-    /* Take full width */
+    /* Full width by default */
+    margin-bottom: 10px;
+    /* Space between dropdowns when in a column */
 }
 
-.react-select__control {
-    font-size: 0.85em;
-    /* Smaller font size */
-    height: 35px;
-    /* Decrease height */
-}
-
+/* Media query for tablet-sized screens (800px to 1199px) */
 @media (min-width: 800px) {
     .dropdown-container {
         flex-direction: row;
-        /* Stack items horizontally for wider screens */
+        /* Switch to row layout */
+        flex-wrap: wrap;
+        /* Allow wrapping */
         justify-content: space-between;
-        /* Evenly space out items */
+        /* Evenly space out dropdowns */
     }
 
     .dropdown-wrapper {
         width: 45%;
-        /* Allow each dropdown to take almost half of the width */
+        /* Two dropdowns per row */
+        margin-bottom: 10px;
+        /* No extra space in row layout */
     }
 }
 
-@media (min-width: 900px) {
+/* Media query for larger screens (1200px and above) */
+@media (min-width: 1200px) {
     .dropdown-wrapper {
-        width: 40%;
-        /* On wider screens, allow more space between dropdowns */
+        width: 30%;
+        /* Allow three dropdowns per row */
     }
-}
-
-/* .jd-filters-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    background-color: transparent;
-    padding: 0 20px 20px;
-    background-color: #fff !important;
-} */
-
-.profile-sidebar {
-    padding: 0 15px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #bbfcea;
 }

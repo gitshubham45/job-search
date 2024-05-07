@@ -1,0 +1,29 @@
+.common-size {
+    width: 100%; /* Full width to match dropdown size */
+    padding: 8px; /* Consistent padding */
+    border: 1px solid #ccc; /* Standard border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 0.85em; /* Consistent font size */
+    background: white; /* White background */
+  }
+  
+  /* Flex layout for alignment */
+  .flex-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between elements */
+  }
+  
+  /* Adjust layout based on screen size */
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .dropdown-wrapper {
+      width: 45%; /* Two elements per row */
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .dropdown-wrapper {
+      width: 30%; /* Three elements per row */
+    }
+  }
+  

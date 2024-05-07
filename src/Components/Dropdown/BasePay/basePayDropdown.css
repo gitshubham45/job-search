@@ -1,0 +1,15 @@
+.salary-dropdown {
+  display: flex; /* Flex layout for alignment */
+  align-items: center; /* Align label and dropdown vertically */
+  gap: 10px; /* Space between label and dropdown */
+  width: 100%; /* Take full width by default */
+}
+
+.dropdown-select {
+  width: 100%; /* Ensures dropdown takes full width */
+  padding: 8px; /* Adds padding for consistency */
+  border: 1px solid #ccc; /* Standard border */
+  border-radius: 4px; /* Rounded corners for style */
+  background: white; /* White background for dropdown */
+  font-size: 0.85em; /* Consistent font size */
+}

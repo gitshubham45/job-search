@@ -16,16 +16,22 @@ const JobCard = ({ job }) => {
                 <p></p>
             </div>
             <div className='content'>
-                <h2>{job?.jobRole}</h2>
-                <h3>{job?.companyName}</h3>
-                <p>{job?.location}</p>
-                <p>
-                    {truncatedDescription}
-                    <button className="toggleButton" onClick={() => setIsExpanded(!isExpanded)} >
-                        {isExpanded ? 'Show less' : 'Show more'}
-                    </button>
-                </p>
-                <p>Experience required: {job?.minExp} - {job?.maxExp} years</p>
+                {/* <p>Hello</p> */}
+                <diV>
+                    <h2>{job?.jobRole}</h2>
+                    <h3>{job?.companyName}</h3>
+                    <p>{job?.location}</p>
+                </diV>
+                <div>
+                    <p>
+                        {truncatedDescription}
+                        <button className="toggleButton" onClick={() => setIsExpanded(!isExpanded)} >
+                            {isExpanded ? 'Show less' : 'Show more'}
+                        </button>
+                    </p>
+                    <p>Experience required: {job?.minExp} - {job?.maxExp} years</p>
+                </div>
+
             </div>
             <diV className='apply'>
                 <a href="/apply" target="_blank" rel="noopener noreferrer">
