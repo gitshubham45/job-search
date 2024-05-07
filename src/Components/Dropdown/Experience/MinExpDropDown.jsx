@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
-// import './basePayDropdown.css';
 import minExpData from './minExpData'
 
 const createOptions = (minExpData) => {
@@ -19,7 +18,6 @@ const MinExpDropDown = () => {
 
   return (
     <Select
-    //   isMulti
       options={createOptions(minExpData)}
       value={selectedMinExp}
       onChange={handleChange}

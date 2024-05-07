@@ -15,7 +15,6 @@ const BasePayDropdown = () => {
 
   const handleChange = (selectedOptions) => {
     setSelectedBasePay(selectedOptions);
-    console.log(selectedBasePay);
   };
 
   return (

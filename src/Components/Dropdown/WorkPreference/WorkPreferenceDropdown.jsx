@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import workPreference from './workPreference';
 
-// Convert techStack to react-select-compatible options
 const createOptions = (preference) => {
   return preference.map((item) => ({
     value: item,

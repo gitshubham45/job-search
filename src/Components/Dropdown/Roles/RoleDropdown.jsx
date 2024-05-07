@@ -1,4 +1,3 @@
-// src/RoleDropdown.js
 import React, { useState } from 'react';
 import rolesData from './rolesData';
 import './roleDropdown.css'; // Create CSS for styling
@@ -19,7 +18,6 @@ const RoleDropdown = ({handleRoleChange}) => {
 
     const handleChange = (selectedOptions) => {
         setSelectedRoles(selectedOptions);
-        // console.log(selectedOptions);
         handleRoleChange(selectedOptions);
     };
 
@@ -29,7 +27,7 @@ const RoleDropdown = ({handleRoleChange}) => {
             options={getOptions(rolesData)} // Use transformed options
             value={selectedRoles}
             onChange={handleChange}
-            placeholder="Select roles..."
+            placeholder="Select roles"
         />
     );
 };

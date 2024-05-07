@@ -76,24 +76,7 @@ const JobList = ({
         };
     }, [handleScroll]);
 
-    // const filteredJobs = debounceQuery?.trim()
-    //     ? jobData.filter((job) => {
-    //         const matchesSearchQuery =
-    //             job?.jobRole?.toLowerCase().includes(debounceQuery.toLowerCase()) ||
-    //             job?.jobDetailsFromCompany?.toLowerCase().includes(debounceQuery.toLowerCase()) ||
-    //             job?.companyName?.toLowerCase().includes(debounceQuery.toLowerCase()) ||
-    //             job?.location?.toLowerCase().includes(debounceQuery.toLowerCase());
-
-    //         const matchesSelectedRoles = selectedRoles.length > 0
-    //             ? selectedRoles.some((role) =>
-    //                 job?.jobRole?.toLowerCase() === role.value?.toLowerCase()
-    //             )
-    //             : true; // If no roles are selected, do not filter by role
-
-    //         return matchesSearchQuery && matchesSelectedRoles;
-    //     })
-    //     : jobData; // If no query, return the full list
-
+    // get filtered list ogf jobs by all conditions
     const filteredJobs = filterJobs(
         jobData, 
         debounceQuery, 
@@ -106,7 +89,6 @@ const JobList = ({
     )
 
     const  jobs = filterJobs.length > 0 ? filteredJobs : jobData;
-
 
 
     return (

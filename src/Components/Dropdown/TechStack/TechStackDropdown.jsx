@@ -23,7 +23,7 @@ const TechStackDropdown = () => {
       options={createOptions(techStack)}
       value={selectedTech}
       onChange={handleChange}
-      placeholder="Select tech stack..."
+      placeholder="Select tech stack"
     />
   );
 };
