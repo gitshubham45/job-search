@@ -2,11 +2,40 @@
 
 /* Styling for the job card container */
 .card {
+    width: 25vw;
+    height: 90vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
     border: 1px solid #ddd;
-    padding: 16px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 16px;
+    background-color: rgb(182, 211, 244);
+   
+}
+
+
+
+@media (max-width: 934px) {
+    .card {
+        width: 35vw;
+        flex-direction: column;
+        /* Stack items horizontally for wider screens */
+        justify-content: space-between;
+        /* Evenly space out items */
+    }
+}
+@media (max-width: 500px) {
+    .card {
+        min-width: 35vw;
+        flex-direction: column;
+        /* Stack items horizontally for wider screens */
+        justify-content: space-between;
+        /* Evenly space out items */
+    }
 }
 
 /* Styling for the toggle button (Show more/less) */
@@ -18,10 +47,33 @@
     padding: 0;
 }
 
+.time{
+    height: 1%;
+    background-color: #007BFF;
+}
+
+.content{
+    height: 70%;
+    background-color: blueviolet;
+    overflow: hidden;
+}
+
+.apply{
+    height: 10%;    
+    width: 100%;
+    display: block;
+    text-align: center;
+    background-color: crimson;
+}
+
 /* Styling for the apply button */
 .applyButton {
-    background-color: #007BFF;
-    color: white;
+    width: 100%;
+    height: auto;
+    background-color: #55EFC4;
+    color: black;
+    font-weight: bold;
+    font-size: large;
     padding: 10px;
     border: none;
     border-radius: 5px;

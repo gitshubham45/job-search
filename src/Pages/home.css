@@ -1,4 +1,12 @@
-.home{
+.jobs{
+    width: 90vw;
+    height: auto;
     display: flex;
-    
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.home{
+    padding: 50px;
 }

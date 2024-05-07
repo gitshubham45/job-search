@@ -5,19 +5,30 @@ import RoleDropdown from "../Components/Dropdown/Roles/RoleDropdown";
 import EmployeeDropdown from '../Components/Dropdown/Employee/EmployeeDropdown';
 import TechStackDropdown from '../Components/Dropdown/TechStack/TechStackDropdown';
 import WorkPreferenceDropdown from '../Components/Dropdown/WorkPreference/WorkPreferenceDropdown';
+import './DropdownContainer.css';
+import './home.css'
 
 const Home = () => {
     return (
         <div className="home" style={styles.container}>
             <h1>Welcome to Job Listings</h1>
-            <div>
-                <RoleDropdown />
-                <EmployeeDropdown />
-                <TechStackDropdown />
-                <WorkPreferenceDropdown />
+            <div className="dropdown-container">
+                <div className="dropdown-wrapper">
+                    <RoleDropdown />
+                </div>
+                <div className="dropdown-wrapper">
+                    <EmployeeDropdown />
+                </div>
+                <div className="dropdown-wrapper">
+                    <TechStackDropdown />
+                </div>
+                <div className="dropdown-wrapper">
+                    <WorkPreferenceDropdown />
+                </div>
             </div>
-
-            <JobList />
+            <div className='jobs'>
+                <JobList />
+            </div>
         </div>
     );
 };

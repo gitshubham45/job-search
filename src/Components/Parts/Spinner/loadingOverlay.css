@@ -1,0 +1,18 @@
+.overlay {
+    position: fixed; /* Stays in place even when scrolling */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; /* Covers the entire screen */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black for gray-out effect */
+    display: flex; /* Flex to center the spinner */
+    justify-content: center; /* Horizontally center the spinner */
+    align-items: center; /* Vertically center the spinner */
+    z-index: 1000; /* High z-index to be on top */
+  }
+  
+  .spinner-container {
+    text-align: center; /* Center the spinner */
+    background: transparent; /* Transparent background */
+  }
+  
