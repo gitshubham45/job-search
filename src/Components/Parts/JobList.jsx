@@ -2,12 +2,24 @@ import React, { useEffect, useState, useCallback } from 'react';
 import JobCard from '../JobCard';
 import './jobList.css';
 import LoadingOverlay from './Spinner/LoadingOverlay'; // Import the overlay
+import filterJobs from '../../Config/filter';
 
-const JobList = ({ debounceQuery }) => {
+const JobList = ({
+    debounceQuery,
+    selectedRoles,
+    selectedBasePay,
+    selectedEmployeeRange,
+    selectedMinExp,
+    selectedTechStack,
+    selectedWorkPreference
+}) => {
     const [jobData, setJobData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [offset, setOffset] = useState(0);
     const limit = 12;
+
+    console.log(selectedRoles);
+
 
     const fetchJobData = useCallback(async () => {
         if (isLoading) return; // Prevent multiple fetches
@@ -43,7 +55,7 @@ const JobList = ({ debounceQuery }) => {
             } finally {
                 setIsLoading(false); // Reset loading state
             }
-        }, 500); // 1-second delay before fetching
+        }, 500);
     }, [isLoading, limit, offset]);
 
     useEffect(() => {
@@ -64,20 +76,42 @@ const JobList = ({ debounceQuery }) => {
         };
     }, [handleScroll]);
 
-    const filteredJobs = debounceQuery?.trim() // Check if there's content in the search box
-        ? jobData.filter(
-            (job) =>
-            (job?.jobRole?.toLowerCase().includes(debounceQuery.toLowerCase()) || // Safely access the title
-                job?.description?.toLowerCase().includes(debounceQuery.toLowerCase()) ||
-                job?.companyName?.toLowerCase().includes(debounceQuery.toLowerCase()) ||
-                job?.location?.toLowerCase().includes(debounceQuery.toLowerCase()) ) // Safely access the description
-        )
-        : jobData; // If no search query, return the entire list
+    // const filteredJobs = debounceQuery?.trim()
+    //     ? jobData.filter((job) => {
+    //         const matchesSearchQuery =
+    //             job?.jobRole?.toLowerCase().includes(debounceQuery.toLowerCase()) ||
+    //             job?.jobDetailsFromCompany?.toLowerCase().includes(debounceQuery.toLowerCase()) ||
+    //             job?.companyName?.toLowerCase().includes(debounceQuery.toLowerCase()) ||
+    //             job?.location?.toLowerCase().includes(debounceQuery.toLowerCase());
+
+    //         const matchesSelectedRoles = selectedRoles.length > 0
+    //             ? selectedRoles.some((role) =>
+    //                 job?.jobRole?.toLowerCase() === role.value?.toLowerCase()
+    //             )
+    //             : true; // If no roles are selected, do not filter by role
+
+    //         return matchesSearchQuery && matchesSelectedRoles;
+    //     })
+    //     : jobData; // If no query, return the full list
+
+    const filteredJobs = filterJobs(
+        jobData, 
+        debounceQuery, 
+        selectedRoles ,
+        selectedBasePay ,
+        selectedEmployeeRange ,
+        selectedMinExp ,
+        selectedTechStack ,
+        selectedWorkPreference 
+    )
+
+    const  jobs = filterJobs.length > 0 ? filteredJobs : jobData;
+
 
 
     return (
         <div className="jobList">
-            {filteredJobs.map((job, index) => (
+            {jobs.map((job, index) => (
                 <JobCard key={index} job={job} />
             ))}
             <LoadingOverlay isLoading={isLoading} /> {/* Display overlay if loading */}

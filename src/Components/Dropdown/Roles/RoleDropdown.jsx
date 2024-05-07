@@ -13,12 +13,14 @@ const getOptions = (data) => {
     }));
 };
 
-const RoleDropdown = () => {
+const RoleDropdown = ({handleRoleChange}) => {
 
     const [selectedRoles, setSelectedRoles] = useState([]);
 
     const handleChange = (selectedOptions) => {
         setSelectedRoles(selectedOptions);
+        // console.log(selectedOptions);
+        handleRoleChange(selectedOptions);
     };
 
     return (

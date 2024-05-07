@@ -16,6 +16,14 @@ const Home = () => {
     const [debouncedQuery, setDebouncedQuery] = useState(''); // State for the debounced query
     const [timeoutId, setTimeoutId] = useState(null); // State to hold the timeout ID
 
+    const [selectedRoles, setSelectedRoles] = useState([]); // State to hold the selected roles
+    const [selectedBasePay, setSelectedBasePay] = useState('');
+    const [selectedEmployeeRanges, setSelectedEmployeeRange] = useState('');
+    const [selectedMinExp, setSelectedMinExp] = useState('');
+    const [selectedTechStack, setSelectedTechStack] = useState('');
+    const [selectedWorkPreference, setSelectedWorkPreference] = useState('');
+
+
     const handleSearchChange = (e) => {
         const newQuery = e.target.value;
 
@@ -32,27 +40,66 @@ const Home = () => {
         setTimeoutId(newTimeoutId); // Save the new timeout ID
     };
 
+    const handleRoleChange = (roles) => {
+        console.log(roles);
+        setSelectedRoles(roles);
+    }
+
+    const handleBasePayChange = (basePay) => {
+        setSelectedBasePay(basePay);
+
+    }
+
+    const handleEmployeeRangeChange = (employeeRange) => {
+        setSelectedEmployeeRange(employeeRange);
+    }
+
+    const handleMinExpChange = (exp) => {
+        setSelectedMinExp(exp);
+    }
+
+    const handleTechStackChange = (techStack) => {
+        setSelectedTechStack(techStack)
+    }
+
+    const handleWorkPreferenceChange = (preference) => {
+        setSelectedWorkPreference(preference);
+    }
+
+
     return (
         <div className="home" style={styles.container}>
             <h1>Welcome to Job Listings</h1>
             <div className="dropdown-container">
                 <div className="dropdown-wrapper">
-                    <RoleDropdown />
+                    <RoleDropdown
+                        handleRoleChange={handleRoleChange}
+                    />
                 </div>
                 <div className="dropdown-wrapper">
-                    <EmployeeDropdown />
+                    <EmployeeDropdown
+                        onChange={handleEmployeeRangeChange}
+                    />
                 </div>
                 <div className="dropdown-wrapper">
-                    <TechStackDropdown />
+                    <TechStackDropdown
+                        onChange={handleTechStackChange}
+                    />
                 </div>
                 <div className="dropdown-wrapper">
-                    <WorkPreferenceDropdown />
+                    <WorkPreferenceDropdown
+                        onChange={handleWorkPreferenceChange}
+                    />
                 </div>
                 <div className="dropdown-wrapper">
-                    <MinExpDropDown />
+                    <MinExpDropDown
+                        onnChange={handleMinExpChange}
+                    />
                 </div>
                 <div className="dropdown-wrapper">
-                    <BasePayDropdown />
+                    <BasePayDropdown
+                        onChange={handleBasePayChange}
+                    />
                 </div>
                 <div className="dropdown-wrapper">
                     <SearchBox
@@ -62,7 +109,15 @@ const Home = () => {
                 </div>
             </div>
             <div className='jobs'>
-                <JobList debounceQuery={debouncedQuery} />
+                <JobList
+                    debounceQuery={debouncedQuery}
+                    selectedRoles={selectedRoles}
+                    selectedBasePay={selectedBasePay}
+                    selectedEmployeeRange={selectedEmployeeRanges}
+                    selectedMinExp={selectedMinExp}
+                    selectedTechStack={selectedTechStack}
+                    selectedWorkPreference={selectedWorkPreference}
+                />
             </div>
         </div>
     );
