@@ -82,7 +82,7 @@ const JobList = ({
         debounceQuery, 
         selectedRoles ,
         selectedBasePay ,
-        selectedEmployeeRange ,
+        selectedEmployeeRange,
         selectedMinExp ,
         selectedTechStack ,
         selectedWorkPreference 
@@ -93,9 +93,9 @@ const JobList = ({
 
     return (
         <div className="jobList">
-            {jobs.map((job, index) => (
+            {jobs.length > 0 ? (jobs.map((job, index) => (
                 <JobCard key={index} job={job} />
-            ))}
+            ))):(<h1>Nothing to Show Here</h1>)}
             <LoadingOverlay isLoading={isLoading} /> {/* Display overlay if loading */}
         </div>
     );
